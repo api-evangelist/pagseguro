@@ -1,0 +1,130 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: PagSeguro / PagBank
+providerId: pagseguro
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+- Payments
+- Checkout
+- Pix
+- Boleto
+- Cards
+- Subscriptions
+- Recurring
+- POS
+- Card Reader
+- Marketplace
+- Split
+- Payouts
+- Digital Bank
+- Brazil
+- Latin America
+- Fintech
+description: >-
+  Machine-readable plans scaffold for the PagSeguro / PagBank API surface.
+  Conforms to the API Commons Plans schema. PagBank charges per-transaction
+  fees (varying by payment method and settlement window) rather than per-API
+  call; the entries below capture the API access surface only. Real per-
+  transaction MDR (Merchant Discount Rate) and anticipation fees must be
+  reconciled against the provider's published commercial terms.
+plans:
+- id: pagseguro-developer
+  name: Developer (Sandbox)
+  type: free
+  description: >-
+    Free sandbox access for development and certification. No production
+    settlements, no real card / Pix / boleto charges.
+  entries:
+  - label: API Requests (Sandbox)
+    description: Sandbox request quota for development and testing
+    name: api_requests_sandbox
+    type: quota
+    metric: requests
+    limit: 10000
+    timeFrame: month
+    geo: BR
+    domains:
+    - https://sandbox.api.pagseguro.com
+    unit: 1
+    price: '0.00'
+    userMultiplied: false
+  - label: Rate Limit (Sandbox)
+    description: Default per-token request rate in the sandbox environment
+    name: rate_limit_sandbox
+    type: rate
+    metric: requests_per_minute
+    limit: 60
+    timeFrame: minute
+    geo: BR
+    domains:
+    - https://sandbox.api.pagseguro.com
+    unit: 1
+    price: '0.00'
+- id: pagseguro-production
+  name: Production
+  type: usage-based
+  description: >-
+    Production API access. API calls themselves are free; revenue is captured
+    via per-transaction MDR on cards, Pix, and boleto plus optional credit
+    anticipation. Replace placeholder values below with the provider's
+    published merchant pricing.
+  entries:
+  - label: API Requests (Production)
+    description: Production request quota for live merchants
+    name: api_requests_production
+    type: quota
+    metric: requests
+    limit: 0
+    timeFrame: month
+    geo: BR
+    domains:
+    - https://api.pagseguro.com
+    unit: 1
+    price: '0.00'
+    userMultiplied: false
+    notes: API access is free; transactional fees apply at settlement, not per call.
+  - label: Card Transaction Fee (MDR)
+    description: Per-transaction Merchant Discount Rate on card payments — scaffold; replace with published rate
+    name: mdr_card
+    type: transaction
+    metric: percent_of_transaction
+    limit: 0
+    timeFrame: per-transaction
+    geo: BR
+    domains:
+    - https://api.pagseguro.com
+    unit: 1
+    price: '0.00'
+  - label: Pix Transaction Fee
+    description: Per-transaction fee on Pix collections — scaffold; replace with published rate
+    name: pix_fee
+    type: transaction
+    metric: percent_of_transaction
+    limit: 0
+    timeFrame: per-transaction
+    geo: BR
+    domains:
+    - https://api.pagseguro.com
+    unit: 1
+    price: '0.00'
+  - label: Boleto Transaction Fee
+    description: Per-issued-boleto fee — scaffold; replace with published rate
+    name: boleto_fee
+    type: transaction
+    metric: per_issuance
+    limit: 0
+    timeFrame: per-transaction
+    geo: BR
+    domains:
+    - https://api.pagseguro.com
+    unit: 1
+    price: '0.00'
+references:
+- name: PagBank Developers
+  url: https://developer.pagbank.com.br/
+- name: PagBank Pricing (Tarifas)
+  url: https://pagbank.com.br/tarifas
+- name: apis.yml
+  url: https://raw.githubusercontent.com/api-evangelist/pagseguro/refs/heads/main/apis.yml

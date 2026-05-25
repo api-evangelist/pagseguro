@@ -1,0 +1,84 @@
+executed: '2026-05-25T00:00:00.000Z'
+results:
+  - code: apis-json-specification-aid-info
+    message: There is an aid.
+    path:
+      - aid
+    severity: 2
+  - code: apis-json-specification-name-info
+    message: There is a name.
+    path:
+      - name
+    severity: 2
+  - code: apis-json-specification-description-info
+    message: There is a description.
+    path:
+      - description
+    severity: 2
+  - code: apis-json-specification-type-info
+    message: There is a type.
+    path:
+      - type
+    severity: 2
+  - code: apis-json-specification-image-info
+    message: There is an image.
+    path:
+      - image
+    severity: 2
+  - code: apis-json-specification-tags-info
+    message: There are tags.
+    path:
+      - tags
+    severity: 2
+  - code: apis-json-url-info
+    message: There is a URL.
+    path:
+      - url
+    severity: 2
+  - code: apis-json-apis-info
+    message: Has APIs
+    path:
+      - apis
+    severity: 2
+  - code: apis-json-common-info
+    message: Has Common
+    path:
+      - common
+    severity: 2
+  - code: apis-json-integrations-info
+    message: Has Integrations
+    path:
+      - integrations
+    severity: 2
+  - code: apis-json-maintainers-info
+    message: Has Maintainers
+    path:
+      - maintainers
+    severity: 2
+  - code: apis-json-specification-version-info
+    message: Specification version present.
+    path:
+      - specificationVersion
+    severity: 2
+  - code: apis-json-apis-contact-error
+    message: APIs COULD have contact information.
+    path:
+      - apis
+    severity: 1
+summary:
+  provider: PagSeguro / PagBank
+  providerId: pagseguro
+  type: Index
+  apiCount: 22
+  hasOpenAPI: true
+  hasPlans: true
+  hasRateLimits: true
+  hasFinOps: true
+  hasReviewYml: true
+  hasReadme: true
+  tier: 1
+  notes:
+    - Tier-1 Brazilian payment processor (UOL spinoff; NYSE PAGS).
+    - Public REST API covering Orders, Charges, Public Keys, Checkout, Recurring, Connect, Accounts, EDI, Certificates, Webhooks.
+    - Official SDKs in PHP, Java, Ruby, .NET plus WooCommerce / Magento / PrestaShop plugins and PlugPag terminal integration.
+    - Pricing surface is dominated by per-transaction MDR / Pix / boleto fees rather than per-API-call billing; plans.yml and finops.yml reflect this.

@@ -1,0 +1,387 @@
+aid: pagseguro
+name: PagSeguro / PagBank
+description: >-
+  PagSeguro (operating consumer-facing under the PagBank brand) is one of
+  Brazil's largest payment processors and digital-banking platforms. Originally
+  spun out of UOL (Universo Online) and listed on the NYSE under PAGS, the
+  company offers an end-to-end financial stack covering online payments,
+  in-person card acceptance via the Moderninha and Minizinha terminal
+  families, Pix instant payments, boleto, credit and debit cards, recurring
+  subscriptions, marketplace split, payouts, account-as-a-service, and a
+  digital bank with cards, credit, and investments. Its developer portal at
+  developer.pagbank.com.br exposes a REST API surface (Orders, Charges,
+  Public Keys, Checkout, Recurring, Connect/OAuth, Account Registration,
+  EDI, Webhooks) backed by official SDKs in PHP, Java, Ruby, and .NET, plus
+  WooCommerce, Magento/Adobe Commerce, and PrestaShop plugins.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+position: Producer
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+  - Payments
+  - Checkout
+  - Pix
+  - Boleto
+  - Cards
+  - Subscriptions
+  - Recurring
+  - POS
+  - Card Reader
+  - Marketplace
+  - Split
+  - Payouts
+  - Digital Bank
+  - Brazil
+  - Latin America
+  - Fintech
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/pagseguro/refs/heads/main/apis.yml
+specificationVersion: '0.20'
+apis:
+  - aid: pagseguro:orders
+    name: PagBank Orders API
+    description: >-
+      Core REST surface for creating and managing orders and their associated
+      charges across credit card, debit card with 3DS, boleto, and Pix. Covers
+      capture, cancel, refund, fees retrieval, and stored-card validation.
+    humanURL: https://developer.pagbank.com.br/reference/criar-pedido
+    baseURL: https://api.pagseguro.com
+    tags:
+      - Orders
+      - Payments
+      - Refunds
+      - 3DS
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+      - type: APIReference
+        url: https://developer.pagbank.com.br/reference/introducao
+  - aid: pagseguro:checkout
+    name: PagBank Checkout & Payment Link API
+    description: >-
+      Hosted checkout and shareable payment-link generation. Merchants create,
+      activate, deactivate, and retrieve checkouts; PagBank renders the UI,
+      handles payment-method selection and 3DS, and returns the buyer to the
+      merchant on completion.
+    humanURL: https://developer.pagbank.com.br/docs/checkout
+    baseURL: https://api.pagseguro.com
+    tags:
+      - Checkout
+      - Hosted
+      - Payment Links
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/checkout
+  - aid: pagseguro:public-keys
+    name: PagBank Public Keys API
+    description: >-
+      Issues the public keys used for client-side card encryption in PagBank's
+      transparent checkout. Lets merchants tokenise card data in the browser
+      so raw PAN never reaches their servers.
+    humanURL: https://developer.pagbank.com.br/reference/criar-uma-chave-publica
+    baseURL: https://api.pagseguro.com
+    tags:
+      - Tokenization
+      - Encryption
+      - PCI
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - aid: pagseguro:recurring
+    name: PagBank Recurring / Subscriptions API
+    description: >-
+      Recurring-billing surface with plans, subscribers, subscriptions,
+      invoices, coupons, refunds, and retry management. Supports activate,
+      suspend, cancel, and per-subscriber payment-method updates.
+    humanURL: https://developer.pagbank.com.br/reference/criar-plano-recorrente
+    baseURL: https://api.pagseguro.com
+    tags:
+      - Subscriptions
+      - Recurring
+      - Plans
+      - Invoices
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - aid: pagseguro:pix
+    name: PagBank Pix API
+    description: >-
+      Pix (Brazilian Central Bank instant-payment rail) charge creation and
+      collection. Supports QR-code generation, due-date Pix (Pix Cobrança), and
+      payment status retrieval, integrated into the Orders flow.
+    humanURL: https://developer.pagbank.com.br/reference/criar-um-pedido-pix
+    baseURL: https://api.pagseguro.com
+    tags:
+      - Pix
+      - Instant Payments
+      - QR
+      - Brazil
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - aid: pagseguro:boleto
+    name: PagBank Boleto API
+    description: >-
+      Boleto Bancário issuance and collection. Generates a printable / scannable
+      boleto tied to an Order, with status callbacks once the buyer pays at a
+      bank, lottery house, or via internet banking.
+    humanURL: https://developer.pagbank.com.br/reference/criar-pedido-com-boleto
+    baseURL: https://api.pagseguro.com
+    tags:
+      - Boleto
+      - Brazil
+      - Collections
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - aid: pagseguro:split
+    name: PagBank Marketplace / Split API
+    description: >-
+      Payment-division (split) settlement for marketplaces and platforms.
+      Splits a single charge across multiple receivers (with optional custody
+      / release control) so each seller is settled directly by PagBank.
+    humanURL: https://developer.pagbank.com.br/reference/criar-pedido-com-split
+    baseURL: https://api.pagseguro.com
+    tags:
+      - Marketplace
+      - Split
+      - Settlement
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - aid: pagseguro:connect
+    name: PagBank Connect / OAuth API
+    description: >-
+      OAuth-style authorisation surface that lets a third-party application
+      act on behalf of a PagBank account holder. Includes SMS and challenge
+      verification, access-token issuance, refresh, and revoke.
+    humanURL: https://developer.pagbank.com.br/docs/connect
+    baseURL: https://api.pagseguro.com
+    tags:
+      - OAuth
+      - Authorization
+      - Connect
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/connect
+  - aid: pagseguro:accounts
+    name: PagBank Account Registration API
+    description: >-
+      Lets PagBank partners create and query merchant accounts on behalf of
+      third parties — the on-ramp for platforms that want to onboard sub-merchants
+      into the PagBank ecosystem.
+    humanURL: https://developer.pagbank.com.br/docs/cadastro-de-clientes
+    baseURL: https://api.pagseguro.com
+    tags:
+      - Onboarding
+      - Sub Merchants
+      - KYC
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - aid: pagseguro:edi
+    name: PagBank EDI API
+    description: >-
+      Electronic Data Interchange surface for downloading transaction and
+      settlement statements for reconciliation — a structured replacement for
+      manual CSV/PDF statement processing.
+    humanURL: https://developer.pagbank.com.br/docs/edi
+    baseURL: https://api.pagseguro.com
+    tags:
+      - EDI
+      - Reconciliation
+      - Statements
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - aid: pagseguro:certificates
+    name: PagBank Digital Certificate (mTLS) API
+    description: >-
+      Issues digital certificates for mTLS authentication, layered on top of
+      bearer-token auth for higher-trust integrations and sensitive payouts /
+      Pix Bacen flows.
+    humanURL: https://developer.pagbank.com.br/docs/certificado-digital
+    baseURL: https://api.pagseguro.com
+    tags:
+      - mTLS
+      - Security
+      - Certificates
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - aid: pagseguro:webhooks
+    name: PagBank Webhooks / Notifications
+    description: >-
+      Event-driven notifications for order, charge, subscription, refund, and
+      checkout state changes. Webhooks are signed so receivers can verify
+      authenticity end-to-end.
+    humanURL: https://developer.pagbank.com.br/docs/webhooks
+    baseURL: customer-configured
+    tags:
+      - Webhooks
+      - Events
+      - Notifications
+    properties:
+      - type: Documentation
+        url: https://developer.pagbank.com.br/docs/webhooks
+  - aid: pagseguro:sdk-php
+    name: PagSeguro PHP SDK
+    description: >-
+      Official PHP integration library for PagSeguro / PagBank.
+    humanURL: https://github.com/pagseguro/pagseguro-sdk-php
+    baseURL: https://github.com/pagseguro/pagseguro-sdk-php
+    tags:
+      - SDK
+      - PHP
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/pagseguro-sdk-php
+  - aid: pagseguro:sdk-java
+    name: PagSeguro Java SDK
+    description: >-
+      Official Java integration library for PagSeguro / PagBank.
+    humanURL: https://github.com/pagseguro/pagseguro-sdk-java
+    baseURL: https://github.com/pagseguro/pagseguro-sdk-java
+    tags:
+      - SDK
+      - Java
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/pagseguro-sdk-java
+  - aid: pagseguro:sdk-ruby
+    name: PagSeguro Ruby SDK
+    description: >-
+      Official Ruby integration library for PagSeguro / PagBank.
+    humanURL: https://github.com/pagseguro/pagseguro-sdk-ruby
+    baseURL: https://github.com/pagseguro/pagseguro-sdk-ruby
+    tags:
+      - SDK
+      - Ruby
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/pagseguro-sdk-ruby
+  - aid: pagseguro:sdk-dotnet
+    name: PagSeguro .NET SDK
+    description: >-
+      Official .NET / C# integration library for PagSeguro / PagBank.
+    humanURL: https://github.com/pagseguro/pagseguro-sdk-dotnet
+    baseURL: https://github.com/pagseguro/pagseguro-sdk-dotnet
+    tags:
+      - SDK
+      - .NET
+      - C#
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/pagseguro-sdk-dotnet
+  - aid: pagseguro:plugpag
+    name: PagBank PlugPag (Terminal Integration)
+    description: >-
+      Bluetooth / Android terminal integration for PagBank's Moderninha and
+      Minizinha card readers, enabling third-party apps to drive in-person
+      card and Pix payments on PagBank hardware.
+    humanURL: https://github.com/pagseguro/plugpag
+    baseURL: https://github.com/pagseguro/plugpag
+    tags:
+      - POS
+      - Card Reader
+      - Android
+      - Bluetooth
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/plugpag
+  - aid: pagseguro:plugpag-service-wrapper
+    name: PagBank PlugPagServiceWrapper
+    description: >-
+      Android service wrapper for integrating with the Moderninha / Minizinha
+      terminal family — the official higher-level SDK on top of PlugPag.
+    humanURL: https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper
+    baseURL: https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper
+    tags:
+      - POS
+      - Card Reader
+      - Android
+      - Kotlin
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper
+  - aid: pagseguro:woocommerce
+    name: PagBank for WooCommerce
+    description: >-
+      Official WooCommerce plugin embedding PagBank checkout, Pix, boleto,
+      and card payments in WordPress storefronts.
+    humanURL: https://github.com/pagseguro/pagbank-for-woocommerce
+    baseURL: https://github.com/pagseguro/pagbank-for-woocommerce
+    tags:
+      - Plugin
+      - WooCommerce
+      - WordPress
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/pagbank-for-woocommerce
+  - aid: pagseguro:magento
+    name: PagBank Payment for Magento / Adobe Commerce
+    description: >-
+      Official Magento 2 / Adobe Commerce payment module for PagBank.
+    humanURL: https://github.com/pagseguro/payment-magento
+    baseURL: https://github.com/pagseguro/payment-magento
+    tags:
+      - Plugin
+      - Magento
+      - Adobe Commerce
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/payment-magento
+  - aid: pagseguro:prestashop
+    name: PagSeguro PrestaShop Module
+    description: >-
+      Official PrestaShop transparent-checkout integration module for
+      PagSeguro / PagBank.
+    humanURL: https://github.com/pagseguro/pagseguro-modulo-prestashop
+    baseURL: https://github.com/pagseguro/pagseguro-modulo-prestashop
+    tags:
+      - Plugin
+      - PrestaShop
+    properties:
+      - type: Repository
+        url: https://github.com/pagseguro/pagseguro-modulo-prestashop
+common:
+  - type: Website
+    url: https://pagbank.com.br/
+  - type: ConsumerWebsite
+    url: https://pagseguro.uol.com.br/
+  - type: Developers
+    url: https://developer.pagbank.com.br/
+  - type: Documentation
+    url: https://developer.pagbank.com.br/docs/apis-pagbank
+  - type: APIReference
+    url: https://developer.pagbank.com.br/reference/introducao
+  - type: GettingStarted
+    url: https://developer.pagbank.com.br/docs/primeiros-passos-pagbank
+  - type: Authentication
+    url: https://developer.pagbank.com.br/v1/docs/dev-autenticacao
+  - type: Environments
+    url: https://developer.pagbank.com.br/docs/ambientes-disponiveis
+  - type: Webhooks
+    url: https://developer.pagbank.com.br/docs/webhooks
+  - type: Changelog
+    url: https://developer.pagbank.com.br/changelog
+  - type: GitHub
+    url: https://github.com/pagseguro
+  - type: Postman
+    url: https://documenter.getpostman.com/view/10863174/TVetc6HV
+  - type: InvestorRelations
+    url: https://investors.pagseguro.com/
+integrations:
+  - name: WooCommerce
+  - name: Magento
+  - name: Adobe Commerce
+  - name: PrestaShop
+  - name: VTEX
+  - name: Shopify
+  - name: Nuvemshop
+  - name: Wix
+maintainers:
+  - FN: API Evangelist
+    url: https://apievangelist.com

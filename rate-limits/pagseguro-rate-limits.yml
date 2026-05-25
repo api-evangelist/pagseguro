@@ -1,0 +1,92 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: PagSeguro / PagBank
+providerId: pagseguro
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+- Payments
+- Checkout
+- Pix
+- Boleto
+- Cards
+- Subscriptions
+- Recurring
+- POS
+- Card Reader
+- Marketplace
+- Split
+- Payouts
+- Digital Bank
+- Brazil
+- Latin America
+- Fintech
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Scaffolded rate-limit definitions for the PagSeguro / PagBank API surface.
+  PagBank does not publish detailed per-tier QPS envelopes in its developer
+  portal; the scaffolded values below should be reconciled against the
+  provider's actual production policy (which is typically enforced per merchant
+  account / OAuth client and varies by payment-method endpoint family — Pix
+  Bacen and payouts in particular run on stricter envelopes than read-only
+  order queries).
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+  policy: RateLimit-Policy
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  serviceUnavailable: 503
+limits:
+- tier: sandbox
+  name: Sandbox Default
+  scope: api-key
+  metric: requests_per_minute
+  limit: 60
+  burst: 120
+  timeFrame: minute
+  applies:
+  - https://sandbox.api.pagseguro.com
+  description: >-
+    Default per-token sandbox request envelope. Bursts above the limit return
+    HTTP 429 with Retry-After.
+- tier: production
+  name: Production Default
+  scope: api-key
+  metric: requests_per_minute
+  limit: 600
+  burst: 1200
+  timeFrame: minute
+  applies:
+  - https://api.pagseguro.com
+  description: >-
+    Default per-merchant production envelope (scaffold). Reconcile against
+    PagBank's published commercial terms for high-volume integrations.
+- tier: production-pix-bacen
+  name: Pix Bacen / Payouts Envelope
+  scope: api-key
+  metric: requests_per_minute
+  limit: 120
+  burst: 240
+  timeFrame: minute
+  applies:
+  - https://api.pagseguro.com
+  description: >-
+    Stricter envelope expected for Pix Bacen and payout / transfer endpoints,
+    which run on regulated rails with separate throttling — scaffold only.
+recoveryStrategies:
+- name: Exponential Backoff
+  description: Wait Retry-After seconds (or back off exponentially up to 60s) before retrying.
+- name: Idempotency Keys
+  description: Reuse idempotency keys on retry so duplicate charges are not created when 429s collide with eventual success.
+- name: Queue and Batch
+  description: Smooth bursty workloads (settlement reconciliation, mass-payouts) into the steady-state envelope.
+notes:
+- PagBank does not publish a single canonical per-tier QPS table; numbers above are scaffolds for governance modelling.
+- Pix Bacen and payouts endpoints are regulated and typically more tightly throttled than order / charge endpoints.

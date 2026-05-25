@@ -1,0 +1,132 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+provider: PagSeguro / PagBank
+providerId: pagseguro
+publisherName: PagSeguro Internet S.A.
+serviceCategory: API
+created: '2026-05-25'
+modified: '2026-05-25'
+tags:
+- Payments
+- Checkout
+- Pix
+- Boleto
+- Cards
+- Subscriptions
+- Recurring
+- POS
+- Card Reader
+- Marketplace
+- Split
+- Payouts
+- Digital Bank
+- Brazil
+- Latin America
+- Fintech
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps framework alignment for the PagSeguro / PagBank surface. Unlike a
+  typical SaaS API, PagBank's cost model is dominated by per-transaction
+  MDR / Pix / boleto fees and credit-anticipation discounts rather than per-
+  API-call billing. This mapping provides a FOCUS-shaped scaffold for cost
+  allocation, settlement reconciliation, and unit-economics reporting across
+  payment-method domains.
+principles:
+- name: Visibility
+  description: Make per-payment-method cost (card MDR, Pix fees, boleto fees, anticipation discount) visible to engineering, product, and finance teams in near real-time.
+- name: Allocation
+  description: Tag every charge with the consuming team / storefront / brand / channel so payment cost can be allocated back to the revenue line that produced it.
+- name: Optimization
+  description: Continuously evaluate payment-method mix, settlement window, anticipation usage, and split-payment configuration to reduce blended cost per BRL captured.
+- name: Accountability
+  description: Establish budget owners for payment-processing cost and chargeback / refund / dispute exposure per business unit.
+domains:
+- name: Card Processing
+  description: Per-transaction MDR on credit and debit card charges, settled net of fees.
+  costDrivers:
+  - transaction_volume
+  - installment_plan
+  - settlement_window
+  - brand_mix
+  focusMapping:
+    ChargeCategory: Usage
+    ChargeClass: Consumption
+    ServiceCategory: API
+    ServiceSubcategory: Payment Processing
+- name: Pix Processing
+  description: Per-transaction fee on Pix collections; lower than card MDR but with its own envelope.
+  costDrivers:
+  - transaction_volume
+  - dynamic_vs_static_qr
+  focusMapping:
+    ChargeCategory: Usage
+    ChargeClass: Consumption
+    ServiceCategory: API
+    ServiceSubcategory: Payment Processing
+- name: Boleto Processing
+  description: Per-issued-boleto fee, regardless of whether the boleto is ultimately paid.
+  costDrivers:
+  - boleto_issuance_volume
+  - paid_vs_expired_ratio
+  focusMapping:
+    ChargeCategory: Usage
+    ChargeClass: Consumption
+    ServiceCategory: API
+    ServiceSubcategory: Payment Processing
+- name: Credit Anticipation
+  description: Discount taken when the merchant anticipates future card receivables to D+1 or D+2 instead of standard D+30.
+  costDrivers:
+  - anticipation_amount
+  - days_anticipated
+  focusMapping:
+    ChargeCategory: Adjustment
+    ChargeClass: Discount
+    ServiceCategory: API
+    ServiceSubcategory: Receivables Anticipation
+- name: API Consumption
+  description: API calls themselves are free at PagBank; this domain exists for observability parity with peers and to track sandbox vs production traffic.
+  costDrivers:
+  - request_volume
+  focusMapping:
+    ChargeCategory: Usage
+    ChargeClass: Consumption
+    ServiceCategory: API
+    ServiceSubcategory: Provider API
+focusFields:
+  required:
+  - BillingPeriodStart
+  - BillingPeriodEnd
+  - ChargeCategory
+  - ChargePeriodStart
+  - ChargePeriodEnd
+  - ProviderName
+  - PublisherName
+  - InvoiceIssuerName
+  - ServiceName
+  - ServiceCategory
+  - BilledCost
+  - EffectiveCost
+  - ListCost
+  - ContractedCost
+  - PricingCategory
+  - PricingUnit
+  - PricingQuantity
+  recommended:
+  - SubAccountId
+  - SubAccountName
+  - ResourceId
+  - ResourceName
+  - ResourceType
+  - Region
+  - Tags
+notes:
+- PagBank does not publish a FOCUS-conformant billing export; this mapping is the recommended target shape for ingesting settlement statements (EDI API) into a FinOps data plane.
+- Reconcile the scaffolded mapping above against PagBank's actual merchant statement / EDI file format.
