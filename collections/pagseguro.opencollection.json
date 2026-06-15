@@ -1,0 +1,828 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PagBank / PagSeguro REST API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/orders"
+          },
+          "docs": "List Orders"
+        },
+        {
+          "info": {
+            "name": "Create an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/orders"
+          },
+          "docs": "Create an Order"
+        },
+        {
+          "info": {
+            "name": "Get an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/orders/:order_id",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an Order"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Charges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Charge an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/orders/:order_id/charges",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Charge an Order"
+        },
+        {
+          "info": {
+            "name": "Capture a Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/orders/:order_id/charges/:charge_id/capture",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Capture a Charge"
+        },
+        {
+          "info": {
+            "name": "Cancel a Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/orders/:order_id/charges/:charge_id/cancel",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel a Charge"
+        },
+        {
+          "info": {
+            "name": "Get Charge Fees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/charges/:charge_id/fees",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Charge Fees"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "PublicKeys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Public Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/public-keys"
+          },
+          "docs": "Create a Public Key"
+        },
+        {
+          "info": {
+            "name": "Get a Public Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/public-keys/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Public Key"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Checkout",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/checkouts"
+          },
+          "docs": "Create a Checkout"
+        },
+        {
+          "info": {
+            "name": "Get a Checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/checkouts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Checkout"
+        },
+        {
+          "info": {
+            "name": "Activate a Checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/checkouts/:id/activate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Activate a Checkout"
+        },
+        {
+          "info": {
+            "name": "Deactivate a Checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/checkouts/:id/deactivate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deactivate a Checkout"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/plans"
+          },
+          "docs": "List Plans"
+        },
+        {
+          "info": {
+            "name": "Create a Recurring Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/plans"
+          },
+          "docs": "Create a Recurring Plan"
+        },
+        {
+          "info": {
+            "name": "Get a Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/plans/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Plan"
+        },
+        {
+          "info": {
+            "name": "Update a Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/plans/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a Plan"
+        },
+        {
+          "info": {
+            "name": "Activate a Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/plans/:id/activate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Activate a Plan"
+        },
+        {
+          "info": {
+            "name": "Deactivate a Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/plans/:id/deactivate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Deactivate a Plan"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Subscribers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/subscribers"
+          },
+          "docs": "List Subscribers"
+        },
+        {
+          "info": {
+            "name": "Create a Subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/subscribers"
+          },
+          "docs": "Create a Subscriber"
+        },
+        {
+          "info": {
+            "name": "Get a Subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/subscribers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Subscriber"
+        },
+        {
+          "info": {
+            "name": "Update a Subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/subscribers/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a Subscriber"
+        },
+        {
+          "info": {
+            "name": "Update Subscriber Payment Method",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/subscribers/:id/payment-method",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update Subscriber Payment Method"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/subscriptions"
+          },
+          "docs": "List Subscriptions"
+        },
+        {
+          "info": {
+            "name": "Create a Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/subscriptions"
+          },
+          "docs": "Create a Subscription"
+        },
+        {
+          "info": {
+            "name": "Get a Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Subscription"
+        },
+        {
+          "info": {
+            "name": "Update a Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/subscriptions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update a Subscription"
+        },
+        {
+          "info": {
+            "name": "Cancel a Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/subscriptions/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel a Subscription"
+        },
+        {
+          "info": {
+            "name": "Suspend a Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/subscriptions/:id/suspend",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Suspend a Subscription"
+        },
+        {
+          "info": {
+            "name": "Activate a Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.pagseguro.com/subscriptions/:id/activate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Activate a Subscription"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Invoices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Invoices for a Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/subscriptions/:id/invoices",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Invoices for a Subscription"
+        },
+        {
+          "info": {
+            "name": "Get an Invoice",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/invoices/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an Invoice"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Coupons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Coupons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/coupons"
+          },
+          "docs": "List Coupons"
+        },
+        {
+          "info": {
+            "name": "Create a Coupon",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/coupons"
+          },
+          "docs": "Create a Coupon"
+        },
+        {
+          "info": {
+            "name": "Get a Coupon",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/coupons/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Coupon"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Refunds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Refunds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/refunds"
+          },
+          "docs": "List Refunds"
+        },
+        {
+          "info": {
+            "name": "Create a Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/refunds"
+          },
+          "docs": "Create a Refund"
+        },
+        {
+          "info": {
+            "name": "Get a Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/refunds/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Refund"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Connect",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Connect Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/applications"
+          },
+          "docs": "Create a Connect Application"
+        },
+        {
+          "info": {
+            "name": "Get a Connect Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Connect Application"
+        },
+        {
+          "info": {
+            "name": "Request Authorization (Connect)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/authorization"
+          },
+          "docs": "Request Authorization (Connect)"
+        },
+        {
+          "info": {
+            "name": "Issue an Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/tokens"
+          },
+          "docs": "Issue an Access Token"
+        },
+        {
+          "info": {
+            "name": "Refresh an Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/tokens/refresh"
+          },
+          "docs": "Refresh an Access Token"
+        },
+        {
+          "info": {
+            "name": "Revoke an Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/tokens/revoke"
+          },
+          "docs": "Revoke an Access Token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Sub-Merchant Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/accounts"
+          },
+          "docs": "Create a Sub-Merchant Account"
+        },
+        {
+          "info": {
+            "name": "Get a Sub-Merchant Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/accounts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Sub-Merchant Account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
