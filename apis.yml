@@ -365,7 +365,7 @@ common:
     url: https://developer.pagbank.com.br/docs/ambientes-disponiveis
   - type: Webhooks
     url: https://developer.pagbank.com.br/docs/webhooks
-  - type: Changelog
+  - type: ChangeLog
     url: https://developer.pagbank.com.br/changelog
   - type: GitHub
     url: https://github.com/pagseguro
