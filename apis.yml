@@ -347,6 +347,10 @@ apis:
       - type: Repository
         url: https://github.com/pagseguro/pagseguro-modulo-prestashop
 common:
+  - type: DomainSecurity
+    url: security/pagseguro-domain-security.yml
+  - type: Authentication
+    url: authentication/pagseguro-authentication.yml
   - type: Website
     url: https://pagbank.com.br/
   - type: ConsumerWebsite

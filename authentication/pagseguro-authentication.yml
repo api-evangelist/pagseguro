@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/pagseguro-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: access_token
+  description: |-
+    PagBank access token issued via the developer portal (or via the
+    Connect flow). Send as "Authorization: Bearer {ACCESS_TOKEN}". All
+    requests must be HTTPS.
+  sources:
+  - openapi/pagseguro-openapi.yml
