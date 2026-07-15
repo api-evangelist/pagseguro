@@ -347,6 +347,8 @@ apis:
       - type: Repository
         url: https://github.com/pagseguro/pagseguro-modulo-prestashop
 common:
+  - type: AgenticAccess
+    url: agentic-access/pagseguro-agentic-access.yml
   - type: DomainSecurity
     url: security/pagseguro-domain-security.yml
   - type: Authentication
