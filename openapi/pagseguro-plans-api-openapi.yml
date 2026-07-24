@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: PagBank / PagSeguro REST Accounts Plans API
+  description: "PagBank (PagSeguro) REST API surface covering Orders, Charges, Public\nKeys, Checkout, Recurring (plans / subscribers / subscriptions / coupons\n/ invoices), and Connect / OAuth. All requests authenticate with a Bearer\naccess token over HTTPS; responses are JSON.\n\nBase URLs:\n  - Production: https://api.pagseguro.com\n  - Sandbox:    https://sandbox.api.pagseguro.com\n"
+  version: v1
+  contact:
+    name: PagBank Developers
+    url: https://developer.pagbank.com.br/
+servers:
+- url: https://api.pagseguro.com
+  description: PagBank production API
+- url: https://sandbox.api.pagseguro.com
+  description: PagBank sandbox API
+security:
+- bearerAuth: []
+tags:
+- name: Plans
+paths:
+  /plans:
+    post:
+      tags:
+      - Plans
+      summary: Create a Recurring Plan
+      responses:
+        '201':
+          description: Plan created
+    get:
+      tags:
+      - Plans
+      summary: List Plans
+      responses:
+        '200':
+          description: Plans list
+  /plans/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Plans
+      summary: Get a Plan
+      responses:
+        '200':
+          description: Plan
+    put:
+      tags:
+      - Plans
+      summary: Update a Plan
+      responses:
+        '200':
+          description: Plan updated
+  /plans/{id}/activate:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - Plans
+      summary: Activate a Plan
+      responses:
+        '200':
+          description: Plan activated
+  /plans/{id}/deactivate:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - Plans
+      summary: Deactivate a Plan
+      responses:
+        '200':
+          description: Plan deactivated
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'PagBank access token issued via the developer portal (or via the
+
+        Connect flow). Send as "Authorization: Bearer {ACCESS_TOKEN}". All
+
+        requests must be HTTPS.
+
+        '

@@ -1,0 +1,60 @@
+openapi: 3.1.0
+info:
+  title: PagBank / PagSeguro REST Accounts Orders API
+  description: "PagBank (PagSeguro) REST API surface covering Orders, Charges, Public\nKeys, Checkout, Recurring (plans / subscribers / subscriptions / coupons\n/ invoices), and Connect / OAuth. All requests authenticate with a Bearer\naccess token over HTTPS; responses are JSON.\n\nBase URLs:\n  - Production: https://api.pagseguro.com\n  - Sandbox:    https://sandbox.api.pagseguro.com\n"
+  version: v1
+  contact:
+    name: PagBank Developers
+    url: https://developer.pagbank.com.br/
+servers:
+- url: https://api.pagseguro.com
+  description: PagBank production API
+- url: https://sandbox.api.pagseguro.com
+  description: PagBank sandbox API
+security:
+- bearerAuth: []
+tags:
+- name: Orders
+paths:
+  /orders:
+    post:
+      tags:
+      - Orders
+      summary: Create an Order
+      responses:
+        '201':
+          description: Order created
+    get:
+      tags:
+      - Orders
+      summary: List Orders
+      responses:
+        '200':
+          description: Orders list
+  /orders/{order_id}:
+    parameters:
+    - name: order_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Orders
+      summary: Get an Order
+      responses:
+        '200':
+          description: Order
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'PagBank access token issued via the developer portal (or via the
+
+        Connect flow). Send as "Authorization: Bearer {ACCESS_TOKEN}". All
+
+        requests must be HTTPS.
+
+        '

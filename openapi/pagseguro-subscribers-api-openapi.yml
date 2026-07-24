@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: PagBank / PagSeguro REST Accounts Subscribers API
+  description: "PagBank (PagSeguro) REST API surface covering Orders, Charges, Public\nKeys, Checkout, Recurring (plans / subscribers / subscriptions / coupons\n/ invoices), and Connect / OAuth. All requests authenticate with a Bearer\naccess token over HTTPS; responses are JSON.\n\nBase URLs:\n  - Production: https://api.pagseguro.com\n  - Sandbox:    https://sandbox.api.pagseguro.com\n"
+  version: v1
+  contact:
+    name: PagBank Developers
+    url: https://developer.pagbank.com.br/
+servers:
+- url: https://api.pagseguro.com
+  description: PagBank production API
+- url: https://sandbox.api.pagseguro.com
+  description: PagBank sandbox API
+security:
+- bearerAuth: []
+tags:
+- name: Subscribers
+paths:
+  /subscribers:
+    post:
+      tags:
+      - Subscribers
+      summary: Create a Subscriber
+      responses:
+        '201':
+          description: Subscriber created
+    get:
+      tags:
+      - Subscribers
+      summary: List Subscribers
+      responses:
+        '200':
+          description: Subscribers list
+  /subscribers/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Subscribers
+      summary: Get a Subscriber
+      responses:
+        '200':
+          description: Subscriber
+    put:
+      tags:
+      - Subscribers
+      summary: Update a Subscriber
+      responses:
+        '200':
+          description: Subscriber updated
+  /subscribers/{id}/payment-method:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    put:
+      tags:
+      - Subscribers
+      summary: Update Subscriber Payment Method
+      responses:
+        '200':
+          description: Payment method updated
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'PagBank access token issued via the developer portal (or via the
+
+        Connect flow). Send as "Authorization: Bearer {ACCESS_TOKEN}". All
+
+        requests must be HTTPS.
+
+        '

@@ -1,0 +1,81 @@
+openapi: 3.1.0
+info:
+  title: PagBank / PagSeguro REST Accounts Checkout API
+  description: "PagBank (PagSeguro) REST API surface covering Orders, Charges, Public\nKeys, Checkout, Recurring (plans / subscribers / subscriptions / coupons\n/ invoices), and Connect / OAuth. All requests authenticate with a Bearer\naccess token over HTTPS; responses are JSON.\n\nBase URLs:\n  - Production: https://api.pagseguro.com\n  - Sandbox:    https://sandbox.api.pagseguro.com\n"
+  version: v1
+  contact:
+    name: PagBank Developers
+    url: https://developer.pagbank.com.br/
+servers:
+- url: https://api.pagseguro.com
+  description: PagBank production API
+- url: https://sandbox.api.pagseguro.com
+  description: PagBank sandbox API
+security:
+- bearerAuth: []
+tags:
+- name: Checkout
+paths:
+  /checkouts:
+    post:
+      tags:
+      - Checkout
+      summary: Create a Checkout
+      responses:
+        '201':
+          description: Checkout created
+  /checkouts/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Checkout
+      summary: Get a Checkout
+      responses:
+        '200':
+          description: Checkout
+  /checkouts/{id}/activate:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Checkout
+      summary: Activate a Checkout
+      responses:
+        '200':
+          description: Activated
+  /checkouts/{id}/deactivate:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Checkout
+      summary: Deactivate a Checkout
+      responses:
+        '200':
+          description: Deactivated
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'PagBank access token issued via the developer portal (or via the
+
+        Connect flow). Send as "Authorization: Bearer {ACCESS_TOKEN}". All
+
+        requests must be HTTPS.
+
+        '

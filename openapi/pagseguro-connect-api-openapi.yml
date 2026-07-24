@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: PagBank / PagSeguro REST Accounts Connect API
+  description: "PagBank (PagSeguro) REST API surface covering Orders, Charges, Public\nKeys, Checkout, Recurring (plans / subscribers / subscriptions / coupons\n/ invoices), and Connect / OAuth. All requests authenticate with a Bearer\naccess token over HTTPS; responses are JSON.\n\nBase URLs:\n  - Production: https://api.pagseguro.com\n  - Sandbox:    https://sandbox.api.pagseguro.com\n"
+  version: v1
+  contact:
+    name: PagBank Developers
+    url: https://developer.pagbank.com.br/
+servers:
+- url: https://api.pagseguro.com
+  description: PagBank production API
+- url: https://sandbox.api.pagseguro.com
+  description: PagBank sandbox API
+security:
+- bearerAuth: []
+tags:
+- name: Connect
+paths:
+  /applications:
+    post:
+      tags:
+      - Connect
+      summary: Create a Connect Application
+      responses:
+        '201':
+          description: Application created
+  /applications/{id}:
+    parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Connect
+      summary: Get a Connect Application
+      responses:
+        '200':
+          description: Application
+  /authorization:
+    get:
+      tags:
+      - Connect
+      summary: Request Authorization (Connect)
+      responses:
+        '200':
+          description: Authorization URL / status
+  /tokens:
+    post:
+      tags:
+      - Connect
+      summary: Issue an Access Token
+      responses:
+        '201':
+          description: Token issued
+  /tokens/refresh:
+    post:
+      tags:
+      - Connect
+      summary: Refresh an Access Token
+      responses:
+        '200':
+          description: Token refreshed
+  /tokens/revoke:
+    post:
+      tags:
+      - Connect
+      summary: Revoke an Access Token
+      responses:
+        '200':
+          description: Token revoked
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: access_token
+      description: 'PagBank access token issued via the developer portal (or via the
+
+        Connect flow). Send as "Authorization: Bearer {ACCESS_TOKEN}". All
+
+        requests must be HTTPS.
+
+        '
