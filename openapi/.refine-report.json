@@ -1,0 +1,36 @@
+{
+  "provider": "pagseguro",
+  "sources": [
+    "pagseguro-accounts-api-openapi.yml",
+    "pagseguro-charges-api-openapi.yml",
+    "pagseguro-checkout-api-openapi.yml",
+    "pagseguro-connect-api-openapi.yml",
+    "pagseguro-coupons-api-openapi.yml",
+    "pagseguro-invoices-api-openapi.yml",
+    "pagseguro-orders-api-openapi.yml",
+    "pagseguro-plans-api-openapi.yml",
+    "pagseguro-publickeys-api-openapi.yml",
+    "pagseguro-refunds-api-openapi.yml",
+    "pagseguro-subscribers-api-openapi.yml",
+    "pagseguro-subscriptions-api-openapi.yml"
+  ],
+  "outputs": [
+    "pagseguro-accounts-api-openapi.yml",
+    "pagseguro-charges-api-openapi.yml",
+    "pagseguro-checkout-api-openapi.yml",
+    "pagseguro-connect-api-openapi.yml",
+    "pagseguro-coupons-api-openapi.yml",
+    "pagseguro-invoices-api-openapi.yml",
+    "pagseguro-orders-api-openapi.yml",
+    "pagseguro-plans-api-openapi.yml",
+    "pagseguro-publickeys-api-openapi.yml",
+    "pagseguro-refunds-api-openapi.yml",
+    "pagseguro-subscribers-api-openapi.yml",
+    "pagseguro-subscriptions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
