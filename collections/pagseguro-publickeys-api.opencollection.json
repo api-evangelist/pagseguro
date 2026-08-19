@@ -1,0 +1,53 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PagBank / PagSeguro REST Accounts PublicKeys API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "PublicKeys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Public Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/public-keys"
+          },
+          "docs": "Create a Public Key"
+        },
+        {
+          "info": {
+            "name": "Get a Public Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/public-keys/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Public Key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

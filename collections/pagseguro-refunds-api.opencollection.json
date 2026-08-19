@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PagBank / PagSeguro REST Accounts Refunds API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Refunds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Refunds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/refunds"
+          },
+          "docs": "List Refunds"
+        },
+        {
+          "info": {
+            "name": "Create a Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/refunds"
+          },
+          "docs": "Create a Refund"
+        },
+        {
+          "info": {
+            "name": "Get a Refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/refunds/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Refund"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

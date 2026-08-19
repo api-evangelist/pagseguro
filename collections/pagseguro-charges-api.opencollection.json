@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PagBank / PagSeguro REST Accounts Charges API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Charge an Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/orders/:order_id/charges",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Charge an Order"
+        },
+        {
+          "info": {
+            "name": "Capture a Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/orders/:order_id/charges/:charge_id/capture",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Capture a Charge"
+        },
+        {
+          "info": {
+            "name": "Cancel a Charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/orders/:order_id/charges/:charge_id/cancel",
+            "params": [
+              {
+                "name": "order_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel a Charge"
+        },
+        {
+          "info": {
+            "name": "Get Charge Fees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/charges/:charge_id/fees",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Charge Fees"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

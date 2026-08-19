@@ -1,0 +1,97 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "PagBank / PagSeguro REST Accounts Connect API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Connect",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a Connect Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/applications"
+          },
+          "docs": "Create a Connect Application"
+        },
+        {
+          "info": {
+            "name": "Get a Connect Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/applications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a Connect Application"
+        },
+        {
+          "info": {
+            "name": "Request Authorization (Connect)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.pagseguro.com/authorization"
+          },
+          "docs": "Request Authorization (Connect)"
+        },
+        {
+          "info": {
+            "name": "Issue an Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/tokens"
+          },
+          "docs": "Issue an Access Token"
+        },
+        {
+          "info": {
+            "name": "Refresh an Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/tokens/refresh"
+          },
+          "docs": "Refresh an Access Token"
+        },
+        {
+          "info": {
+            "name": "Revoke an Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.pagseguro.com/tokens/revoke"
+          },
+          "docs": "Revoke an Access Token"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
