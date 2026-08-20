@@ -38,6 +38,23 @@ tags:
   - Pix
   - Boleto
   - Cards
+  - Subscription
+  - Recurring
+  - Point-of-Sale
+  - Card Reader
+  - Marketplace
+  - Split
+  - Payouts
+  - Digital Bank
+  - Brazil
+  - Latin America
+  - Fintech
+tags_raw:
+  - Payments
+  - Checkout
+  - Pix
+  - Boleto
+  - Cards
   - Subscriptions
   - Recurring
   - POS
@@ -62,6 +79,11 @@ apis:
   humanURL: https://developer.pagbank.com.br/reference/criar-pedido
   baseURL: https://api.pagseguro.com
   tags:
+  - Order
+  - Payments
+  - Refunds
+  - 3DS
+  tags_raw:
   - Orders
   - Payments
   - Refunds
@@ -108,6 +130,11 @@ apis:
   humanURL: https://developer.pagbank.com.br/reference/criar-plano-recorrente
   baseURL: https://api.pagseguro.com
   tags:
+  - Subscription
+  - Recurring
+  - Plans
+  - Invoices
+  tags_raw:
   - Subscriptions
   - Recurring
   - Plans
@@ -141,6 +168,10 @@ apis:
   tags:
   - Boleto
   - Brazil
+  - Collection
+  tags_raw:
+  - Boleto
+  - Brazil
   - Collections
   properties:
   - type: Documentation
@@ -168,6 +199,10 @@ apis:
   humanURL: https://developer.pagbank.com.br/docs/connect
   baseURL: https://api.pagseguro.com
   tags:
+  - Authentication
+  - Authorization
+  - Connect
+  tags_raw:
   - OAuth
   - Authorization
   - Connect
@@ -182,6 +217,10 @@ apis:
   humanURL: https://developer.pagbank.com.br/docs/cadastro-de-clientes
   baseURL: https://api.pagseguro.com
   tags:
+  - Onboarding
+  - Sub-Merchants
+  - KYC
+  tags_raw:
   - Onboarding
   - Sub Merchants
   - KYC
@@ -224,6 +263,10 @@ apis:
   humanURL: https://developer.pagbank.com.br/docs/webhooks
   baseURL: customer-configured
   tags:
+  - Webhook
+  - Event
+  - Notification
+  tags_raw:
   - Webhooks
   - Events
   - Notifications
@@ -283,6 +326,11 @@ apis:
   humanURL: https://github.com/pagseguro/plugpag
   baseURL: https://github.com/pagseguro/plugpag
   tags:
+  - Point-of-Sale
+  - Card Reader
+  - Android
+  - Bluetooth
+  tags_raw:
   - POS
   - Card Reader
   - Android
@@ -298,6 +346,11 @@ apis:
   humanURL: https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper
   baseURL: https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper
   tags:
+  - Point-of-Sale
+  - Card Reader
+  - Android
+  - Kotlin
+  tags_raw:
   - POS
   - Card Reader
   - Android
@@ -348,6 +401,8 @@ apis:
   humanURL: https://developer.pagbank.com.br/reference/criar-pedido
   baseURL: https://api.pagseguro.com
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -408,6 +463,8 @@ apis:
   humanURL: https://developer.pagbank.com.br/reference/criar-pedido
   baseURL: https://api.pagseguro.com
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -458,6 +515,8 @@ apis:
   humanURL: https://developer.pagbank.com.br/reference/criar-pedido
   baseURL: https://api.pagseguro.com
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
