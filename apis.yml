@@ -52,7 +52,7 @@ tags:
   - Cards
   - Subscription
   - Recurring
-  - Point-of-Sale
+  - POS
   - Card Reader
   - Marketplace
   - Split
@@ -230,7 +230,7 @@ apis:
   baseURL: https://api.pagseguro.com
   tags:
   - Onboarding
-  - Sub-Merchants
+  - Sub Merchants
   - KYC
   tags_raw:
   - Onboarding
@@ -338,7 +338,7 @@ apis:
   humanURL: https://github.com/pagseguro/plugpag
   baseURL: https://github.com/pagseguro/plugpag
   tags:
-  - Point-of-Sale
+  - POS
   - Card Reader
   - Android
   - Bluetooth
@@ -358,7 +358,7 @@ apis:
   humanURL: https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper
   baseURL: https://github.com/pagseguro/pagseguro-sdk-plugpagservicewrapper
   tags:
-  - Point-of-Sale
+  - POS
   - Card Reader
   - Android
   - Kotlin
