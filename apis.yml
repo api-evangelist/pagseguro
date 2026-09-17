@@ -492,16 +492,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/pagseguro-plans-api-openapi.yml
-- aid: pagseguro:pagseguro-publickeys-api
-  name: PagSeguro / PagBank PublicKeys API
-  description: The PublicKeys API from PagSeguro / PagBank — 2 operation(s) for publickeys.
-  humanURL: https://developer.pagbank.com.br/reference/criar-pedido
-  baseURL: https://api.pagseguro.com
-  tags:
-  - PublicKeys
-  properties:
-  - type: OpenAPI
-    url: openapi/pagseguro-publickeys-api-openapi.yml
 - aid: pagseguro:pagseguro-refunds-api
   name: PagSeguro / PagBank Refunds API
   description: The Refunds API from PagSeguro / PagBank — 2 operation(s) for refunds.
@@ -534,6 +524,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/pagseguro-subscriptions-api-openapi.yml
+- aid: pagseguro:pagseguro-public-keys-api
+  name: PagSeguro / PagBank Public Keys API
+  description: The Public Keys API from PagSeguro / PagBank — 2 operation(s) for public keys.
+  humanURL: https://developer.pagbank.com.br/reference/criar-pedido
+  baseURL: https://api.pagseguro.com
+  tags:
+  - Public Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/pagseguro-public-keys-api-openapi.yml
 common:
   - type: IssueTracker
     url: https://github.com/pagseguro/pagseguro-sdk-php/issues
