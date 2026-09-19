@@ -95,7 +95,7 @@ apis:
   - Order
   - Payments
   - Refunds
-  - 3DS
+  - 3D
   tags_raw:
   - Orders
   - Payments
@@ -379,6 +379,10 @@ apis:
   humanURL: https://github.com/pagseguro/pagbank-for-woocommerce
   baseURL: https://github.com/pagseguro/pagbank-for-woocommerce
   tags:
+  - Plugins
+  - WooCommerce
+  - WordPress
+  tags_raw:
   - Plugin
   - WooCommerce
   - WordPress
@@ -391,6 +395,10 @@ apis:
   humanURL: https://github.com/pagseguro/payment-magento
   baseURL: https://github.com/pagseguro/payment-magento
   tags:
+  - Plugins
+  - Magento
+  - Adobe Commerce
+  tags_raw:
   - Plugin
   - Magento
   - Adobe Commerce
@@ -403,6 +411,9 @@ apis:
   humanURL: https://github.com/pagseguro/pagseguro-modulo-prestashop
   baseURL: https://github.com/pagseguro/pagseguro-modulo-prestashop
   tags:
+  - Plugins
+  - PrestaShop
+  tags_raw:
   - Plugin
   - PrestaShop
   properties:
@@ -530,6 +541,8 @@ apis:
   humanURL: https://developer.pagbank.com.br/reference/criar-pedido
   baseURL: https://api.pagseguro.com
   tags:
+  - PublicKeys
+  tags_raw:
   - Public Keys
   properties:
   - type: OpenAPI
