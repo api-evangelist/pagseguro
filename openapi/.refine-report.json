@@ -1,18 +1,7 @@
 {
   "provider": "pagseguro",
   "sources": [
-    "pagseguro-accounts-api-openapi.yml",
-    "pagseguro-charges-api-openapi.yml",
-    "pagseguro-checkout-api-openapi.yml",
-    "pagseguro-connect-api-openapi.yml",
-    "pagseguro-coupons-api-openapi.yml",
-    "pagseguro-invoices-api-openapi.yml",
-    "pagseguro-orders-api-openapi.yml",
-    "pagseguro-plans-api-openapi.yml",
-    "pagseguro-publickeys-api-openapi.yml",
-    "pagseguro-refunds-api-openapi.yml",
-    "pagseguro-subscribers-api-openapi.yml",
-    "pagseguro-subscriptions-api-openapi.yml"
+    "_original/pagseguro-openapi.yml"
   ],
   "outputs": [
     "pagseguro-accounts-api-openapi.yml",
@@ -28,9 +17,29 @@
     "pagseguro-subscribers-api-openapi.yml",
     "pagseguro-subscriptions-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "pagseguro-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: pagseguro-public-keys-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 33 total)"
+  ],
+  "skipped": [
+    "pagseguro-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-charges-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-checkout-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-connect-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-coupons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-plans-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-public-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-refunds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-subscribers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "pagseguro-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

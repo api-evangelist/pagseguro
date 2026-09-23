@@ -1,7 +1,20 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: PagBank / PagSeguro REST Accounts Invoices API
-  description: "PagBank (PagSeguro) REST API surface covering Orders, Charges, Public\nKeys, Checkout, Recurring (plans / subscribers / subscriptions / coupons\n/ invoices), and Connect / OAuth. All requests authenticate with a Bearer\naccess token over HTTPS; responses are JSON.\n\nBase URLs:\n  - Production: https://api.pagseguro.com\n  - Sandbox:    https://sandbox.api.pagseguro.com\n"
+  title: PagBank / PagSeguro REST Invoices API
+  description: 'PagBank (PagSeguro) REST API surface covering Orders, Charges, Public
+
+    Keys, Checkout, Recurring (plans / subscribers / subscriptions / coupons
+
+    / invoices), and Connect / OAuth. All requests authenticate with a Bearer
+
+    access token over HTTPS; responses are JSON.
+
+
+    Base URLs:
+
+    - Production: https://api.pagseguro.com
+
+    - Sandbox: https://sandbox.api.pagseguro.com'
   version: v1
   contact:
     name: PagBank Developers
@@ -30,6 +43,8 @@ paths:
       responses:
         '200':
           description: Invoices list
+      operationId: getSubscriptionsByIdInvoices
+      x-operation-id-source: derived
   /invoices/{id}:
     parameters:
     - name: id
@@ -44,6 +59,8 @@ paths:
       responses:
         '200':
           description: Invoice
+      operationId: getInvoicesById
+      x-operation-id-source: derived
 components:
   securitySchemes:
     bearerAuth:

@@ -1,7 +1,20 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: PagBank / PagSeguro REST Accounts Connect API
-  description: "PagBank (PagSeguro) REST API surface covering Orders, Charges, Public\nKeys, Checkout, Recurring (plans / subscribers / subscriptions / coupons\n/ invoices), and Connect / OAuth. All requests authenticate with a Bearer\naccess token over HTTPS; responses are JSON.\n\nBase URLs:\n  - Production: https://api.pagseguro.com\n  - Sandbox:    https://sandbox.api.pagseguro.com\n"
+  title: PagBank / PagSeguro REST Connect API
+  description: 'PagBank (PagSeguro) REST API surface covering Orders, Charges, Public
+
+    Keys, Checkout, Recurring (plans / subscribers / subscriptions / coupons
+
+    / invoices), and Connect / OAuth. All requests authenticate with a Bearer
+
+    access token over HTTPS; responses are JSON.
+
+
+    Base URLs:
+
+    - Production: https://api.pagseguro.com
+
+    - Sandbox: https://sandbox.api.pagseguro.com'
   version: v1
   contact:
     name: PagBank Developers
@@ -24,6 +37,8 @@ paths:
       responses:
         '201':
           description: Application created
+      operationId: postApplications
+      x-operation-id-source: derived
   /applications/{id}:
     parameters:
     - name: id
@@ -38,6 +53,8 @@ paths:
       responses:
         '200':
           description: Application
+      operationId: getApplicationsById
+      x-operation-id-source: derived
   /authorization:
     get:
       tags:
@@ -46,6 +63,8 @@ paths:
       responses:
         '200':
           description: Authorization URL / status
+      operationId: getAuthorization
+      x-operation-id-source: derived
   /tokens:
     post:
       tags:
@@ -54,6 +73,8 @@ paths:
       responses:
         '201':
           description: Token issued
+      operationId: postTokens
+      x-operation-id-source: derived
   /tokens/refresh:
     post:
       tags:
@@ -62,6 +83,8 @@ paths:
       responses:
         '200':
           description: Token refreshed
+      operationId: postTokensRefresh
+      x-operation-id-source: derived
   /tokens/revoke:
     post:
       tags:
@@ -70,6 +93,8 @@ paths:
       responses:
         '200':
           description: Token revoked
+      operationId: postTokensRevoke
+      x-operation-id-source: derived
 components:
   securitySchemes:
     bearerAuth:
